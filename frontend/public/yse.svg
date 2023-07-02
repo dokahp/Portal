@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg aria-label="Yse.by" role="img" viewBox="0 0 512 512" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="path-0" style="fill: none;" d="M 251.134 391.768 C 288.573 353.629 325.707 338.636 366.813 330.768 C 383.163 330.641 390.516 332.709 400.754 338.908 C 409.005 345.853 413.043 353.947 419.771 358.482 C 423.445 360.347 426.053 364.199 427.377 366.915 C 430.223 371.926 432.352 375.975 434.915 379.155 C 437.416 383.903 438.615 388.231 440.415 392.092 C 442.223 396.497 444.701 400.073 445.775 404.053 C 448.182 407.451 449.172 411.499 450.282 414.933 L 450.408 415.595 L 450.525 416.07"/>
+  </defs>
+  <rect width="512" height="512" rx="15%" fill="#5f01d1"/>
+  <g fill="#ffffff" transform="matrix(1, 0, 0, 1, -44, 0)">
+    <path d="M 203 404 L 141 404 L 166 345 L 97 180 L 160 180 L 197 275 L 234 180 L 296 180"/>
+  </g>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px; white-space: pre;"><textPath xlink:href="#path-0"> </textPath></text>
+  <text style="font-family: Arial, sans-serif; font-size: 25.9074px; font-weight: 700; letter-spacing: 0.4px; white-space: pre;" transform="matrix(9.389429, 0, 0, 6.754835, -2737.0271, -2036.294189)" x="312.975" y="361.567">сё</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 25.2px;" x="261.81" y="375.458"> </text>
+</svg>
