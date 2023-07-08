@@ -1,10 +1,11 @@
+@import './styles/typography';
 @import './styles/animations';
 @import './styles/functions';
+@import './styles/variables';
 @import './styles/global';
 @import './styles/mixins';
-@import './styles/typography';
-@import './styles/variables';
 
-h1 {
-  color: red;
+html,
+body {
+  margin: 0;
 }
