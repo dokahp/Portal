@@ -1,8 +1,10 @@
 .header {
+  position: relative;
   display: flex;
   align-items: center;
   height: 52px;
   padding: 0 40px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 
   .logo-link {
     display: flex;
@@ -32,25 +34,106 @@
     list-style: none;
     display: flex;
     align-items: center;
+    margin: 0;
 
     .main-menu__item {
       cursor: pointer;
-      padding: 0 16px;
+      padding: 16px 16px 19px 16px;
+      margin: 0;
+      height: 100%;
 
       .main-menu__text {
         font-size: 14px;
         font-weight: 600;
         font-family: 'SBSans', 'SeroPro', sans-serif;
         color: rgb(115, 116, 118);
+        height: 100%;
+      }
 
-        &:hover {
+      .main-menu__content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        width: 100%;
+        left: 0;
+        top: 51px;
+        border-top: 1px solid rgba(59, 76, 104, 0.15);
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+
+        .row {
+          display: flex;
+          padding: 40px 20px;
+
+          .column {
+            display: flex;
+            float: left;
+            width: 33.33%;
+
+            .main-menu__icons {
+              width: 35px;
+              height: 35px;
+              padding-right: 16px;
+            }
+
+            .main_menu__title {
+              font-size: 18px;
+              font-weight: 700;
+              color: #000;
+              display: block;
+              text-decoration: none;
+              margin: 10px 0;
+
+              &:hover {
+                color: #096bde;
+              }
+            }
+
+            .column-list {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+
+              .column-list-item {
+                padding: 8px 0;
+
+                .column-list-link {
+                  font-size: 16px;
+                  font-weight: 400;
+                  color: #000;
+                  margin-right: 10px;
+                  text-decoration: none;
+
+                  &:hover {
+                    color: #096bde;
+                  }
+                }
+
+                .column-list-count {
+                  font-size: 14px;
+                  color: #999;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &:hover {
+        .main-menu__text {
           color: #000;
           height: 100%;
           padding-bottom: 15px;
-          border-bottom: 2px solid black;
+          border-bottom: 2px solid #000;
+        }
+
+        .main-menu__content {
+          display: block;
         }
       }
     }
   }
+
+
 
 }
