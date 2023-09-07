@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from './prisma/prisma.service';
-import { CurrencyDTO } from './currency.dto';
+import { CurrencyDTO } from './currency/dto/currency.dto';
 
 @Injectable()
 export class AppService {
