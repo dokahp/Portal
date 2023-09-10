@@ -12,7 +12,7 @@ model User {
 }
 
 model Currency {
-  Cur_ID            Int      @id
+  Cur_ID            Int            @id
   Cur_ParentID      Int
   Cur_Code          String
   Cur_Abbreviation  String
@@ -29,6 +29,15 @@ model Currency {
   Cur_Periodicity   Int
   Cur_DateStart     DateTime
   Cur_DateEnd       DateTime
+  rates             NationalRate[]
+}
+
+model NationalRate {
+  id               Int       @id @default(autoincrement())
+  Date             DateTime
+  Cur_OfficialRate Decimal
+  Currency         Currency? @relation(fields: [currencyCur_ID], references: [Cur_ID])
+  currencyCur_ID   Int?
 }
 
 datasource db {

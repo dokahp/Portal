@@ -4,6 +4,7 @@ import {
   HttpException,
   HttpStatus,
   Param,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { CurrencyService } from './currency.service';
 
@@ -11,9 +12,14 @@ import { CurrencyService } from './currency.service';
 export class CurrencyController {
   constructor(private readonly currencyService: CurrencyService) {}
 
-  @Get(':abbreviation')
-  async getCurrencyById(@Param('abbreviation') abbreviation: string) {
-    const currency = await this.currencyService.getCurrencyById(abbreviation);
+  @Get()
+  async getAllCurrencyList() {
+    return await this.currencyService.getAllCurrencyList();
+  }
+
+  @Get(':id')
+  async getCurrencyById(@Param('id', ParseIntPipe) id: number) {
+    const currency = await this.currencyService.getCurrencyById(id);
     if (!currency) {
       throw new HttpException('Error: no such currency', HttpStatus.NOT_FOUND);
     }

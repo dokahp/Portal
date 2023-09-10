@@ -5,10 +5,13 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class CurrencyService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async getCurrencyById(abbreviation: string) {
-    console.log(abbreviation);
-    return await this.prisma.currency.findMany({
-      where: { Cur_Abbreviation: abbreviation },
+  async getAllCurrencyList() {
+    return await this.prisma.currency.findMany();
+  }
+
+  async getCurrencyById(id: number) {
+    return await this.prisma.currency.findUnique({
+      where: { Cur_ID: id },
     });
   }
 }
