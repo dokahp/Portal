@@ -27,7 +27,7 @@ export class CurrencyController {
     return currency;
   }
 
-  @Cron(CronExpression.EVERY_DAY_AT_10AM)
+  @Cron(CronExpression.EVERY_HOUR)
   async getCurrencyListFromNbrb() {
     const fetchedData = await this.currencyService.fetchCurrencyList();
     return await this.currencyService.setCurrencyList(fetchedData);
