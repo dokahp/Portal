@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Currency" ALTER COLUMN "Cur_Code" SET DATA TYPE TEXT;
