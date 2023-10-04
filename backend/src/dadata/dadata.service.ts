@@ -44,7 +44,7 @@ export class DadataService {
         .pipe(
           catchError((error: AxiosError) => {
             this.logger.error(error.response.data);
-            throw 'An error happened when fetch Dadata City Suggestions';
+            throw `An error happened when fetch Dadata City Suggestions with query=${query}`;
           }),
         ),
     );
