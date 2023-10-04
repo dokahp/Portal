@@ -41,9 +41,9 @@ model NationalRate {
 }
 
 model City {
-  id     String @id @default(uuid())
-  query  String
-  answer Json
+  id          String @id @default(uuid())
+  query       String
+  suggestions Json
 }
 
 datasource db {

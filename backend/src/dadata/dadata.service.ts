@@ -4,8 +4,14 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { SuggestionsDto } from './dto/suggestions.dto';
 import { AxiosError } from 'axios';
 import { HttpService } from '@nestjs/axios';
+import { Prisma } from '@prisma/client';
 
-const cityURL = `https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address`;
+const suggestionsAPIURL = `https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address`;
+const dadataHeaders = {
+  Authorization: `Token ${process.env.DADATA_API_KEY}`,
+  'Content-Type': 'application/json',
+  Accept: 'application/json',
+};
 
 @Injectable()
 export class DadataService {
@@ -19,11 +25,19 @@ export class DadataService {
     return await this.prisma.city.findFirst({ where: { query: query } });
   }
 
+  async saveCitySuggestByQuery(query: string, data: SuggestionsDto) {
+    const { suggestions } = data;
+    const jsonSuggestions = suggestions as unknown as Prisma.JsonArray;
+    return await this.prisma.city.create({
+      data: { query, suggestions: jsonSuggestions },
+    });
+  }
+
   async fetchDadataCitySuggestions(query: string) {
     const { data } = await lastValueFrom(
       this.httpService
         .post<SuggestionsDto>(
-          cityURL,
+          suggestionsAPIURL,
           {
             query,
             locations: [
@@ -36,9 +50,7 @@ export class DadataService {
             restrict_value: true,
           },
           {
-            headers: {
-              Authorization: `Token ${process.env.DADATA_API_KEY}`,
-            },
+            headers: dadataHeaders,
           },
         )
         .pipe(

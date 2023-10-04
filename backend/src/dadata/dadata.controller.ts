@@ -14,8 +14,13 @@ export class DadataController {
       await this.dadataService.getCitySuggestByQuery(query);
 
     if (!suggestCityByQuery) {
-      return await this.dadataService.fetchDadataCitySuggestions(query);
+      const fetchedCitySuggestions =
+        await this.dadataService.fetchDadataCitySuggestions(query);
+      return await this.dadataService.saveCitySuggestByQuery(
+        query,
+        fetchedCitySuggestions,
+      );
     }
-    return { query: `1+${query}` };
+    return suggestCityByQuery;
   }
 }
