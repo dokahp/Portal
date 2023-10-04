@@ -40,6 +40,12 @@ model NationalRate {
   currencyCur_ID   Int?
 }
 
+model City {
+  id     String @id @default(uuid())
+  query  String
+  answer Json
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
