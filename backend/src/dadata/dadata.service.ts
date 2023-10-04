@@ -33,6 +33,17 @@ export class DadataService {
     });
   }
 
+  async updateCitySuggestByQuery(id: string, query: string) {
+    const newData: SuggestionsDto =
+      await this.fetchDadataCitySuggestions(query);
+    const { suggestions } = newData;
+    const jsonSuggestions = suggestions as unknown as Prisma.JsonArray;
+    return await this.prisma.city.update({
+      where: { id },
+      data: { query, suggestions: jsonSuggestions },
+    });
+  }
+
   async fetchDadataCitySuggestions(query: string) {
     const { data } = await lastValueFrom(
       this.httpService
